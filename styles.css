@@ -1,0 +1,211 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: #f7f7fb;
+  color: #1a1a1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+}
+
+.card-creator {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 30px rgba(15, 15, 30, 0.08);
+}
+
+#card-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+#card-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  color: #434356;
+}
+
+#card-form input,
+#card-form textarea,
+#card-form select {
+  border-radius: 8px;
+  border: 1px solid #d4d4e0;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+#card-form button {
+  border: none;
+  background: #3f5bf6;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.direction-section {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(17, 17, 40, 0.06);
+}
+
+.direction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.direction-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.status-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.status-column {
+  background: #f3f4fb;
+  border-radius: 14px;
+  padding: 12px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.status-column h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b6b7d;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 16px rgba(20, 20, 40, 0.08);
+  display: grid;
+  gap: 8px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 15px;
+}
+
+.card-details {
+  margin: 0;
+  font-size: 13px;
+  color: #4a4a5a;
+}
+
+.card-actions button,
+.card-status-controls button {
+  border: 1px solid #d0d0e2;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.card-status-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 12px;
+  color: #606070;
+}
+
+.card-status-controls span {
+  flex: 1;
+  text-align: center;
+}
+
+.edit-form {
+  display: grid;
+  gap: 8px;
+}
+
+.edit-form input,
+.edit-form textarea {
+  border-radius: 8px;
+  border: 1px solid #d4d4e0;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.edit-actions button {
+  border-radius: 8px;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.edit-actions .save {
+  background: #2f8f46;
+  color: white;
+}
+
+.edit-actions .cancel {
+  background: #e5e5ef;
+  color: #33334a;
+}
+
+@media (max-width: 900px) {
+  .status-columns {
+    grid-template-columns: 1fr;
+  }
+}

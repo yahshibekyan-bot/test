@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Направления жизни — статусы</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div>
+      <h1>Направления жизни</h1>
+      <p>10 направлений и 3 статуса для карточек.</p>
+    </div>
+  </header>
+
+  <section class="card-creator" aria-labelledby="create-card-title">
+    <h2 id="create-card-title">Создать карточку</h2>
+    <form id="card-form">
+      <label>
+        Название
+        <input type="text" name="title" placeholder="Название" required />
+      </label>
+      <label>
+        Описание
+        <textarea name="details" placeholder="Короткое описание" rows="2"></textarea>
+      </label>
+      <label>
+        Направление
+        <select name="direction" required></select>
+      </label>
+      <label>
+        Статус
+        <select name="status" required></select>
+      </label>
+      <button type="submit">Добавить</button>
+    </form>
+  </section>
+
+  <main id="board" class="board" aria-live="polite"></main>
+
+  <template id="card-template">
+    <article class="card">
+      <header class="card-header">
+        <h4 class="card-title"></h4>
+        <div class="card-actions">
+          <button type="button" data-action="edit">Редактировать</button>
+        </div>
+      </header>
+      <p class="card-details"></p>
+      <div class="card-status-controls">
+        <button type="button" data-action="move-left">◀</button>
+        <span class="card-status-label"></span>
+        <button type="button" data-action="move-right">▶</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
