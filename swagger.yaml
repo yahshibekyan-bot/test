@@ -1,0 +1,154 @@
+openapi: 3.0.3
+info:
+  title: Cards API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /cards:
+    get:
+      summary: List cards
+      parameters:
+        - in: query
+          name: direction_id
+          schema:
+            type: string
+          description: Filter cards by direction ID
+        - in: query
+          name: status
+          schema:
+            type: string
+          description: Filter cards by status
+      responses:
+        "200":
+          description: List of cards
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CardList"
+    post:
+      summary: Create a card
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CardCreate"
+      responses:
+        "201":
+          description: Created card
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Card"
+  /cards/{id}:
+    put:
+      summary: Update a card (including status)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CardUpdate"
+      responses:
+        "200":
+          description: Updated card
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Card"
+        "404":
+          description: Card not found
+    delete:
+      summary: Delete a card
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Card deleted
+        "404":
+          description: Card not found
+  /directions/{direction_id}/cards:
+    get:
+      summary: List cards for a direction
+      parameters:
+        - in: path
+          name: direction_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: status
+          schema:
+            type: string
+          description: Filter cards by status
+      responses:
+        "200":
+          description: List of cards
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CardList"
+components:
+  schemas:
+    Card:
+      type: object
+      properties:
+        id:
+          type: integer
+        direction_id:
+          type: string
+        status:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    CardCreate:
+      type: object
+      required:
+        - direction_id
+        - status
+      properties:
+        direction_id:
+          type: string
+        status:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    CardUpdate:
+      type: object
+      properties:
+        direction_id:
+          type: string
+        status:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    CardList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Card"
