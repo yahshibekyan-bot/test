@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Канбан 10 направлений жизни</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Личный канбан</p>
+        <h1>10 направлений жизни</h1>
+        <p class="subtitle">Фиксируйте задачи и отслеживайте прогресс в трёх статусах.</p>
+      </div>
+      <div class="actions">
+        <button id="reset-board" class="ghost">Сбросить доску</button>
+      </div>
+    </header>
+
+    <main id="board" class="board" aria-live="polite"></main>
+
+    <dialog id="card-dialog" class="card-dialog">
+      <form method="dialog" id="card-form" class="card-form">
+        <input type="hidden" name="directionId" />
+        <label>
+          <span>Задача</span>
+          <input type="text" name="title" required maxlength="120" placeholder="Например, утренние тренировки" />
+        </label>
+        <label>
+          <span>Описание</span>
+          <textarea name="description" rows="3" placeholder="Что именно нужно сделать?"></textarea>
+        </label>
+        <label>
+          <span>Статус</span>
+          <select name="status">
+            <option value="backlog">Запланировано</option>
+            <option value="in_progress">В работе</option>
+            <option value="done">Готово</option>
+          </select>
+        </label>
+        <menu>
+          <button type="reset" class="ghost" id="cancel-dialog">Отмена</button>
+          <button type="submit" class="primary">Сохранить</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
